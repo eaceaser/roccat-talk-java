@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.tehasdf</groupId>
+    <artifactId>roccattalk-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>roccattalk-native</artifactId>
+
+  <packaging>nar</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <generatedSourcesDirectory>target/nar/nar-generated</generatedSourcesDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.maven-nar</groupId>
+        <artifactId>nar-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <libraries>
+            <library>
+              <type>jni</type>
+              <narSystemPackage>com.tehasdf.roccat</narSystemPackage>
+            </library>
+          </libraries>
+          <linker>
+            <libs>
+              <lib>
+                <name>msvcrt</name>
+                <type>shared</type>
+                <directory>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib\amd64</directory>
+              </lib>
+              <lib>
+                <name>oldnames</name>
+                <type>shared</type>
+                <directory>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib\amd64</directory>
+              </lib>
+              <lib>
+                <name>kernel32</name>
+                <type>shared</type>
+                <directory>C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib\x64</directory>
+              </lib>
+              <lib>
+                <name>libcmt</name>
+                <type>shared</type>
+                <directory>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib\amd64</directory>
+              </lib>
+              <lib>
+                <name>user32</name>
+                <type>shared</type>
+                <directory>C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib\x64</directory>
+              </lib>
+              <lib>
+                <name>roccat</name>
+                <type>shared</type>
+                <directory>${basedir}\lib</directory>
+              </lib>
+            </libs>
+            <sysLibs>
+              <sysLib>
+                <name>msvcrt</name>
+                <type>shared</type>
+              </sysLib>
+            </sysLibs>
+          </linker>
+          <cpp>
+            <includePaths>
+              <includePath>${basedir}\include</includePath>
+            </includePaths>
+            <systemIncludePaths>
+              <systemIncludePath>C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</systemIncludePath>
+              <systemIncludePath>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include</systemIncludePath>
+            </systemIncludePaths>
+          </cpp>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
