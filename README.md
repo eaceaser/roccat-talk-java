@@ -6,17 +6,18 @@ These are JNI bindings for Roccat's TalkFX SDK.
 
 Bindings for the entire TalkFX API, and an initial attempt at a more java-like API.
 
+## Dependencies
+
+* [eaceaser/talkfx-c-wrapper](https://github.com/eaceaser/talkfx-c-wrapper) (included for now)
+
 ## Build Requirements
 
-* Windows 64-bit
-* Microsoft Visual Studio
-* JDK 7.0 (on your PATH)
+* Windows
+* JDK 7 (on your PATH)
 * Maven (on your PATH)
 
 ## Issues / TODO
 
 * Test coverage
-* Cross compilation
-* Get Visual Studio / Windows SDK paths from the system environment
 * Sane artifact exporting
 * Scala wrapper, if necessary
